@@ -47,28 +47,29 @@ Note: Use the Markdown Table Generator to add/remove values from the table.
 
 Access Policies
 The machines on the internal network are not exposed to the public Internet.
-Only the _____ machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
+Only the Elk machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
+* Workstation Public IP (76.214.125.179) through TCP 5601.
 
-TODO: Add whitelisted IP addresses
-
-Machines within the network can only be accessed by _____.
-
-TODO: Which machine did you allow to access your ELK VM? What was its IP address?
+Machines within the network can only be accessed by Workstation and Jump-Box-Provisioner.
+* Jump-Box-Provisioner IP : 10.0.0.4 via SSH port 22
+* Workstation Public IP via port TCP 5601
 
 A summary of the access policies in place can be found in the table below.
 
 
+| Name  | Publicly Accessible |Allowed IP Addresses |
+|---|---|---|
+| Jump Box  | Yes  | 76.214.125.179  |
+| ELK | No  | 10.0.0.1-254 10.1.0.1-254   |
+| DVWA 1  | No   | 10.0.0.1-254 10.1.0.1-254   |
+| DVWA 2  | No  | 10.0.0.1-254 10.1.0.1-254  |
 
-Name
-Publicly Accessible
-Allowed IP Addresses
 
 
 
 
-Jump Box
-Yes/No
-10.0.0.1 10.0.0.2
+
+
 
 
 
