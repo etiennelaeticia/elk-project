@@ -43,6 +43,8 @@ Note: Use the Markdown Table Generator to add/remove values from the table.
 | DVWA 1  | Web Server  | 10.0.0.5 | Linux   |   
 | DVWA 2  | Web Server  | 10.0.0.6 |  Linux | 
 |  ELK | Monitoring   | 10.1.0.6  | Linux  | 
+|  GE-GT-Load-balancer | Load balancer   | Static External IP |   |
+|  Home Workstation |   | External IP or PublicIP|   |
 
 
 Access Policies
@@ -59,41 +61,42 @@ A summary of the access policies in place can be found in the table below.
 
 | Name  | Publicly Accessible |Allowed IP Addresses |
 |---|---|---|
-| Jump Box  | Yes  | 76.214.125.179  |
-| ELK | No  | 10.0.0.1-254 10.1.0.1-254   |
-| DVWA 1  | No   | 10.0.0.1-254 10.1.0.1-254   |
-| DVWA 2  | No  | 10.0.0.1-254 10.1.0.1-254  |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+| Jump Box  | Yes  | Workstation Public IP(76.214.125.179) on SSH 22   |
+| ELK | Yes  | 	Workstation Public IP (76.214.125.179) using TCP 5601 / 10.0.0.1-254 10.1.0.1-254 on SSH 22   |
+| DVWA 1  | No   | 10.0.0.1-254 10.1.0.1-254 on SSH 22   |
+| DVWA 2  | No  | 10.0.0.1-254 10.1.0.1-254 on SSH 22 |
+|  GE-GT-Load-balancer | Yes   | Workstation Public IP(76.214.125.179) on HTTP 80 |   
 
 
 
 Elk Configuration
-Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
+Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because Ansible lets you quickly and easily deploy multitier apps. You won't need to write custom code to automate your systems; you list the tasks required to be done by writing a playbook, and Ansible will figure out how to get your systems to the state you want them to be in.
 
-TODO: What is the main advantage of automating configuration with Ansible?
 
 The playbook implements the following tasks:
 
-TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc.
-...
-...
+* Specify a different group of machines as well as a different remote user
+  ```- name: Config elk VM with Docker
+    hosts: elk
+    remote_user: sysadmin
+    become: true
+    tasks:```
+* Increase System Memory :
+ ```- name: Use more memory
+  sysctl:
+    name: vm.max_map_count
+    value: '262144'
+    state: present
+    reload: yes```
+* Install the following services:
+  ``` `docker.io`
+   `python3-pip`
+   `docker`, which is the Docker Python pip module.```
+* Launching and Exposing the container with these published ports:
+ ``` `5601:5601` 
+ `9200:9200`
+ `5044:5044` ```
+
 
 The following screenshot displays the result of running docker ps after successfully configuring the ELK instance.
 Note: The following image link needs to be updated. Replace docker_ps_output.png with the name of your screenshot image file.
@@ -102,16 +105,17 @@ Note: The following image link needs to be updated. Replace docker_ps_output.png
 Target Machines & Beats
 This ELK server is configured to monitor the following machines:
 
-TODO: List the IP addresses of the machines you are monitoring
+* Web1 : 10.0.0.5
+* Web2 : 10.0.0.6
 
 We have installed the following Beats on these machines:
-
-TODO: Specify which Beats you successfully installed
+* ELK Server, Web1 and Web2
+* The ELK Stack Installed are: FileBeat and MetricBeat
 
 These Beats allow us to collect the following information from each machine:
 
-TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., Winlogbeat collects Windows logs, which we use to track user logon events, etc.
-
+* Filebeat: log events
+* Metricbeat: metrics and system statistics
 
 Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned:
