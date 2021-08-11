@@ -120,13 +120,13 @@ In order to use the playbook, you will need to have an Ansible control node alre
 SSH into the control node and follow the steps below:
 
 Copy the playbook file to /etc/ansible/.
-Update the _____ file to include...
-Run the playbook, and navigate to ____ to check that the installation worked as expected.
+Update the /etc/ansible/hosts file to include the Elk server IP details.
+Run the playbook, and navigate to http://[workststion public IP]:5601/app/kibana to check that the installation worked as expected.
 
 TODO: Answer the following questions to fill in the blanks:
 
 Which file is the playbook? 
-* ![image](https://user-images.githubusercontent.com/88409540/128951165-1b169acd-9414-4738-bd99-63e7dcffe150.png)
+* elk-playbook.yml 
 Where do you copy it?
 * /etc/ansible/
 Which file do you update to make Ansible run the playbook on a specific machine? 
