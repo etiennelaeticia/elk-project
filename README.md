@@ -2,7 +2,7 @@
 
 ### Automated ELK Stack Deployment
 The files in this repository were used to configure the network depicted below.
-![alt text](https://github.com/etiennelaeticia/elk-project/blob/7949d9011fe82978232f60e184727eb0a4b736f8/Diagrams/Elk-Diagram.jpg)
+![alt text](https://github.com/etiennelaeticia/elk-project/blob/3ae509b92d7ea45560898792334cf73840ef012b/Diagrams/Elk-Diagram.jpg)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the yml and config file may be used to install only certain pieces of it, such as Filebeat.
 
