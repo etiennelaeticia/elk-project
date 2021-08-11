@@ -151,7 +151,7 @@ How do I specify which machine to install the ELK server on versus which to inst
 * To install the ELK server, add the line below in the /etc/ansible/hosts file followed by ansible_python_interpreter=/usr/bin/python3
 ```
 [elk]
-elk-server-IP ansible_python_interpreter=/usr/bin/python3
+10.1.0.6 ansible_python_interpreter=/usr/bin/python3
 ```
 * To install Firebeat, uncomment the [webservers] line and add the IPs of the web server in the /etc/ansible/hosts file followed by ansible_python_interpreter=/usr/bin/python3
 ```
