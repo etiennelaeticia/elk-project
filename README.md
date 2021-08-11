@@ -103,8 +103,8 @@ Note: The following image link needs to be updated. Replace docker_ps_output.png
 Target Machines & Beats
 This ELK server is configured to monitor the following machines:
 
-* Web1 : 10.0.0.5
-* Web2 : 10.0.0.6
+* Web-1 : 10.0.0.5
+* Web-2 : 10.0.0.6
 
 We have installed the following Beats on these machines:
 * ELK Server, Web1 and Web2
