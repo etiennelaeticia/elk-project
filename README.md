@@ -126,7 +126,7 @@ Run the playbook, and navigate to http://[workststion public IP]:5601/app/kibana
 TODO: Answer the following questions to fill in the blanks:
 
 Which file is the playbook? 
-* [playbook.yml] (https://github.com/etiennelaeticia/elk-project/blob/5ed07de69082c386a195b6af2ecf18784b416e68/Ansible/playbook.txt)
+* [playbook.yml](https://github.com/etiennelaeticia/elk-project/blob/5ed07de69082c386a195b6af2ecf18784b416e68/Ansible/playbook.txt)
 
 Where do you copy it?
 * /etc/ansible/
