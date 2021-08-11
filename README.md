@@ -80,7 +80,8 @@ The playbook implements the following tasks:
     hosts: elk
     remote_user: sysadmin
     become: true
-    tasks:```
+    tasks:
+   ```
     
 * Increase System Memory :
  ```- name: Use more memory
@@ -88,12 +89,14 @@ The playbook implements the following tasks:
     name: vm.max_map_count
    value: '262144
    state: present
-   reload: yes```
+   reload: yes
+   ```
 
 * Launching and Exposing the container with these published ports:
 ```5601:5601
  9200:9200
- 5044:5044```
+ 5044:5044
+ ```
 
 
 The following screenshot displays the result of running docker ps after successfully configuring the ELK instance.
@@ -137,7 +140,8 @@ Which file do you update to make Ansible run the playbook on a specific machine?
 How do I specify which machine to install the ELK server on versus which to install Filebeat on?
 * To install the ELK server, add the line below in the /etc/ansible/hosts file followed by ansible_python_interpreter=/usr/bin/python3
 ```[elk]
-elk-server-IP ansible_python_interpreter=/usr/bin/python3```
+elk-server-IP ansible_python_interpreter=/usr/bin/python3
+```
 * To install Firebeat, uncomment the [webservers] line and add the IPs of the web server in the /etc/ansible/hosts file followed by ansible_python_interpreter=/usr/bin/python3
 ```[webservers]
 #alpha.example.org
@@ -145,7 +149,8 @@ elk-server-IP ansible_python_interpreter=/usr/bin/python3```
 #192.168.1.100
 #192.168.1.110
 10.0.0.5 ansible_python_interpreter=/usr/bin/python3
-10.0.0.6 ansible_python_interpreter=/usr/bin/python3```
+10.0.0.6 ansible_python_interpreter=/usr/bin/python3
+```
 
 ![image](https://user-images.githubusercontent.com/88409540/128951503-edda9941-fa5f-4919-9bdf-fb6c84f3a825.png)
 
