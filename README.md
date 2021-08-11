@@ -76,7 +76,8 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 The playbook implements the following tasks:
 
 * Specify a different group of machines as well as a different remote user
-  ```- name: Config elk VM with Docker
+  ```
+  - name: Config elk VM with Docker
     hosts: elk
     remote_user: sysadmin
     become: true
@@ -84,7 +85,8 @@ The playbook implements the following tasks:
    ```
     
 * Increase System Memory :
- ```- name: Use more memory
+ ```
+ - name: Use more memory
   sysctl:
     name: vm.max_map_count
    value: '262144
@@ -93,7 +95,8 @@ The playbook implements the following tasks:
    ```
 
 * Launching and Exposing the container with these published ports:
-```5601:5601
+```
+5601:5601
  9200:9200
  5044:5044
  ```
@@ -139,11 +142,13 @@ Which file do you update to make Ansible run the playbook on a specific machine?
 
 How do I specify which machine to install the ELK server on versus which to install Filebeat on?
 * To install the ELK server, add the line below in the /etc/ansible/hosts file followed by ansible_python_interpreter=/usr/bin/python3
-```[elk]
+```
+[elk]
 elk-server-IP ansible_python_interpreter=/usr/bin/python3
 ```
 * To install Firebeat, uncomment the [webservers] line and add the IPs of the web server in the /etc/ansible/hosts file followed by ansible_python_interpreter=/usr/bin/python3
-```[webservers]
+```
+[webservers]
 #alpha.example.org
 #beta.example.org
 #192.168.1.100
