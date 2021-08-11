@@ -89,16 +89,23 @@ The playbook implements the following tasks:
  - name: Use more memory
   sysctl:
     name: vm.max_map_count
-   value: '262144
-   state: present
-   reload: yes
+    value: "262144"   
+    state: present
+    reload: yes
    ```
 
 * Launching and Exposing the container with these published ports:
 ```
-5601:5601
- 9200:9200
- 5044:5044
+- name: download and launch a docker elk container
+      docker_container:
+        name: elk
+        image: sebp/elk:761
+        state: started
+        restart_policy: always
+        published_ports:
+          - 5601:5601
+          - 9200:9200
+          - 5044:5044
  ```
 
 
