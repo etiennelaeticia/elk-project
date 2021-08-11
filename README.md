@@ -147,5 +147,7 @@ elk-server-IP ansible_python_interpreter=/usr/bin/python3`
 10.0.0.5 ansible_python_interpreter=/usr/bin/python3
 10.0.0.6 ansible_python_interpreter=/usr/bin/python3`
 
+![image](https://user-images.githubusercontent.com/88409540/128951503-edda9941-fa5f-4919-9bdf-fb6c84f3a825.png)
+
 _Which URL do you navigate to in order to check that the ELK server is running?
 * http://[workststion public IP]:5601/app/kibana
