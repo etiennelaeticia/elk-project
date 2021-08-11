@@ -83,17 +83,17 @@ The playbook implements the following tasks:
     tasks:`
     
 * Increase System Memory :
- `- name: Use more memory
-  sysctl:
-    name: vm.max_map_count
-    value: '262144'
-    state: present
-    reload: yes`
+ `- name: Use more memory`
+  `sysctl:`
+    `name: vm.max_map_count`
+  `  value: '262144'`
+  `  state: present`
+   ` reload: yes`
 
 * Launching and Exposing the container with these published ports:
-`5601:5601
- 9200:9200
- 5044:5044`
+`5601:5601`
+ `9200:9200`
+` 5044:5044`
 
 
 The following screenshot displays the result of running docker ps after successfully configuring the ELK instance.
@@ -107,7 +107,7 @@ This ELK server is configured to monitor the following machines:
 * Web-2 : 10.0.0.6
 
 We have installed the following Beats on these machines:
-* ELK Server, Web1 and Web2
+* ELK Server, Web-1 and Web-2
 * The ELK Stack Installed are: FileBeat and MetricBeat
 
 These Beats allow us to collect the following information from each machine:
