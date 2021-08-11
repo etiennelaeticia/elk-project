@@ -127,10 +127,13 @@ TODO: Answer the following questions to fill in the blanks:
 
 Which file is the playbook? 
 * elk-playbook.yml 
+
 Where do you copy it?
 * /etc/ansible/
+
 Which file do you update to make Ansible run the playbook on a specific machine? 
 * /etc/ansible/hosts
+
 How do I specify which machine to install the ELK server on versus which to install Filebeat on?
 * To install the ELK server, add the line below in the /etc/ansible/hosts file followed by ansible_python_interpreter=/usr/bin/python3
 `[elk]
