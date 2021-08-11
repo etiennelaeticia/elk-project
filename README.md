@@ -83,17 +83,17 @@ The playbook implements the following tasks:
     tasks:`
     
 * Increase System Memory :
- `- name: Use more memory`
-  `sysctl:`
-    `name: vm.max_map_count`
-  `  value: '262144'`
-  `  state: present`
-   ` reload: yes`
+ `- name: Use more memory
+  sysctl:
+    name: vm.max_map_count
+   value: '262144
+   state: present
+   reload: yes`
 
 * Launching and Exposing the container with these published ports:
-`5601:5601`
- `9200:9200`
-` 5044:5044`
+`5601:5601
+ 9200:9200
+ 5044:5044`
 
 
 The following screenshot displays the result of running docker ps after successfully configuring the ELK instance.
@@ -119,12 +119,30 @@ Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned:
 SSH into the control node and follow the steps below:
 
-Copy the _____ file to _____.
+Copy the playbook file to /etc/ansible/.
 Update the _____ file to include...
 Run the playbook, and navigate to ____ to check that the installation worked as expected.
 
 TODO: Answer the following questions to fill in the blanks:
 
-Which file is the playbook? Where do you copy it?
-Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?
+Which file is the playbook? 
+* ![image](https://user-images.githubusercontent.com/88409540/128951165-1b169acd-9414-4738-bd99-63e7dcffe150.png)
+Where do you copy it?
+* /etc/ansible/
+Which file do you update to make Ansible run the playbook on a specific machine? 
+* /etc/ansible/hosts
+How do I specify which machine to install the ELK server on versus which to install Filebeat on?
+* To install the ELK server, add the line below in the /etc/ansible/hosts file followed by ansible_python_interpreter=/usr/bin/python3
+`[elk]
+elk-server-IP ansible_python_interpreter=/usr/bin/python3`
+* To install Firebeat, uncomment the [webservers] line and add the IPs of the web server in the /etc/ansible/hosts file followed by ansible_python_interpreter=/usr/bin/python3
+`[webservers]
+#alpha.example.org
+#beta.example.org
+#192.168.1.100
+#192.168.1.110
+10.0.0.5 ansible_python_interpreter=/usr/bin/python3
+10.0.0.6 ansible_python_interpreter=/usr/bin/python3`
+
 _Which URL do you navigate to in order to check that the ELK server is running?
+* http://[workststion public IP]:5601/app/kibana
