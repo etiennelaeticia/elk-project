@@ -121,7 +121,7 @@ SSH into the control node and follow the steps below:
 
 Copy the playbook file to /etc/ansible/.
 Update the /etc/ansible/hosts file to include the Elk server IP details.
-Run the playbook, and navigate to http://[workststion public IP]:5601/app/kibana to check that the installation worked as expected.
+Run the playbook, and navigate to `http://[workststion public IP]:5601/app/kibana` to check that the installation worked as expected.
 
 TODO: Answer the following questions to fill in the blanks:
 
